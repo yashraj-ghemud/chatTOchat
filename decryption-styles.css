@@ -1,0 +1,20 @@
+/* Enhanced Decryption Styles */
+
+.decoded-text {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.8), 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+.encrypted-text {
+    color: rgba(139, 92, 246, 0.6);
+    text-shadow: none;
+    opacity: 0.7;
+}
+
+.flux-text {
+    color: #ffffff;
+    background-color: rgba(139, 92, 246, 0.5);
+    text-shadow: 0 0 8px #ffffff;
+    font-weight: bold;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernChat | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div id="toast-container"></div>
+
+    <div class="container">
+        <div class="auth-container">
+            <div class="terminal-window">
+                <!-- Header removed for cleaner look -->
+
+                <h2 id="auth-title">Welcome Back</h2>
+
+                <div id="auth-forms">
+                    <!-- Email/Password Form -->
+                    <form id="email-form">
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder="Email Address" autocomplete="email" required>
+                            <div class="validation-feedback" id="email-feedback"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="password" placeholder="Password" autocomplete="current-password"
+                                required>
+                            <div class="validation-feedback" id="password-feedback"></div>
+                        </div>
+
+                        <div class="auth-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" id="forgot-password-link">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" id="submit-btn">Sign In</button>
+                    </form>
+
+                    <div class="social-login">
+                        <button id="google-btn"><i class="fab fa-google"></i> Continue with Google</button>
+                    </div>
+
+                    <p style="margin-top: 20px; text-align: center; font-size: 0.9rem;">
+                        <span id="toggle-auth-mode"
+                            style="cursor: pointer; text-decoration: none; color: var(--secondary-color);">
+                            Don't have an account? Sign up
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Reset Modal -->
+    <div id="reset-modal" class="modal hidden">
+        <div class="modal-content terminal-window">
+            <div class="terminal-header" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <span>Reset Password</span>
+                <span class="close-modal" style="cursor: pointer;">&times;</span>
+            </div>
+            <p style="margin-bottom: 15px;">Enter your email to receive a reset link:</p>
+            <input type="email" id="reset-email" placeholder="Email Address">
+            <button id="send-reset-btn" style="margin-top: 15px;">Send Reset Link</button>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+
+</html>

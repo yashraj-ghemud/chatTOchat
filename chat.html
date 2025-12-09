@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernChat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="secret-scanner.css">
+    <link rel="stylesheet" href="decryption-styles.css">
+</head>
+
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div id="toast-container"></div>
+
+    <div class="container">
+        <div class="terminal-header"
+            style="margin: 0 0 20px 0; display: flex; justify-content: space-between; align-items: center; background: var(--glass-bg); padding: 16px 24px; border-radius: 16px; backdrop-filter: blur(20px); border: 1px solid var(--glass-border);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="user-avatar" id="current-user-avatar" style="width: 42px; height: 42px; font-size: 1rem;">U
+                </div>
+                <div>
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
+                        Logged in as</div>
+                    <span id="current-user" style="font-weight: 600; color: var(--accent-color);">Guest</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <label for="profile-upload" class="button-link header-btn">
+                    <i class="fas fa-camera"></i> Change Photo
+                </label>
+                <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                <button id="logout-btn" class="header-btn"><i
+                        class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+
+        <div class="chat-layout">
+            <div class="sidebar">
+                <h3><i class="fas fa-comments"></i> Rooms</h3>
+                <ul class="room-list" id="room-list">
+                    <li class="room-item active" data-room="general"><i class="fas fa-hashtag"></i> General</li>
+                    <li class="room-item" data-room="random"><i class="fas fa-dice"></i> Random</li>
+                    <li class="room-item" data-room="tech"><i class="fas fa-code"></i> Tech</li>
+                    <li class="room-item" data-room="cyberpunk"><i class="fas fa-robot"></i> Cyberpunk</li>
+                </ul>
+
+                <div style="margin-top: 20px;">
+                    <input type="text" id="new-room-input" placeholder="New Room Name" style="margin-bottom: 10px;">
+                    <button id="create-room-btn"><i class="fas fa-plus-circle"></i> Create Room</button>
+                </div>
+            </div>
+
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div>
+                        <div
+                            style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">
+                            Current Room</div>
+                        <div style="font-size: 1.3rem; font-weight: 600;"><i class="fas fa-hashtag"
+                                style="font-size: 0.9rem; opacity: 0.7;"></i> <span
+                                id="current-room-name">General</span></div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button id="search-btn" class="icon-btn"
+                            title="Search messages"><i class="fas fa-search"></i></button>
+                        <button id="room-info-btn" class="icon-btn"
+                            title="Room info"><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+
+                <div class="messages-container" id="messages-container">
+                    <!-- Messages will be injected here -->
+                </div>
+
+                <form class="input-area" id="message-form">
+                    <div class="typing-indicator" id="typing-indicator">
+                        <span class="typing-dots"><span>.</span><span>.</span><span>.</span></span> Someone is typing
+                    </div>
+                    <div class="emoji-picker hidden" id="emoji-picker"></div>
+                    <button type="button" class="secret-toggle-btn" id="secret-toggle-btn" title="Send secret message">
+                        <i class="fas fa-lock"></i> Secret
+                    </button>
+                    <button type="button" class="emoji-picker-btn" id="emoji-btn" title="Add emoji">😊</button>
+                    <input type="text" id="message-input" placeholder="Type a message... (Markdown supported)"
+                        autocomplete="off">
+                    <button type="submit" title="Send message"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+            <div class="user-list-panel">
+                <h3><i class="fas fa-users"></i> Online <span class="badge badge-online" id="user-count">0</span></h3>
+                <ul class="online-users-list" id="online-users-list">
+                    <!-- Users will be injected here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="secret-scanner.js"></script>
+    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</body>
+
+</html>
